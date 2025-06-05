@@ -5,7 +5,7 @@ import sys
 
 def fix_brave_imports(root_dir):
     """
-    Find and comment out all lines that import from //brave/ directories
+    Find and comment out all lines that import from //luxxle/ directories
     in BUILD.gn files throughout the codebase.
     """
     fixed_files = []
@@ -16,7 +16,7 @@ def fix_brave_imports(root_dir):
     
     for root, dirs, files in os.walk(root_dir):
         # Skip the components-backup directory and brave directory
-        if 'components-backup' in root or '\\brave\\' in root or '/brave/' in root:
+        if 'components-backup' in root or '\\luxxle\\' in root or '/luxxle/' in root:
             continue
             
         for file in files:
@@ -36,10 +36,10 @@ def fix_brave_imports(root_dir):
             
             original_content = content
             
-            # Pattern to match import statements from //brave/ directories
+            # Pattern to match import statements from //luxxle/ directories
             # This will match lines like:
-            # import("//brave/...") <any_following_code>
-            pattern = r'^(\s*)(import\("//brave/[^"]*"\)[^\n]*)'
+            # import("//luxxle/...") <any_following_code>
+            pattern = r'^(\s*)(import\("//luxxle/[^"]*"\)[^\n]*)'
             
             # Replace with commented version
             content = re.sub(pattern, r'\1# \2', content, flags=re.MULTILINE)

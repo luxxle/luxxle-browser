@@ -19,17 +19,17 @@ Table of contents
 Brave welcomes contributions of all kinds! You can make a huge impact without writing a single line of code
 
 ### Help triage issues
-One of the easiest ways to help is to [look through our issues tab](https://github.com/brave/brave-browser/issues)
+One of the easiest ways to help is to [look through our issues tab](https://github.com/luxxle/brave-browser/issues)
 * Does the issue still happen? Sometimes we fix the problem and don't always close the issue
 * Are there clear steps to reproduce the issue? If not, let's find and document some
 * Is the issue a duplicate? If so, share the issue that is being duplicated in the conversation
-* See our [Triage Guidelines page](https://github.com/brave/brave-browser/wiki/Triage-Guidelines) for more info about this process
+* See our [Triage Guidelines page](https://github.com/luxxle/brave-browser/wiki/Triage-Guidelines) for more info about this process
 * Making sure issues that are fixed have the appropriate milestone set. There may be pull requests fixing the bug on the different product channels and sometimes the issues are forgotten about (and aren't updated)
 
 ### Updating documentation
 Documentation is extremely important. There are lots of areas we can improve:
-* Having more clear or up-to-date instructions in the README for both [`brave-browser`](https://github.com/brave/brave-browser/blob/master/README.md) and [`brave-core`](https://github.com/brave/brave-core/blob/master/README.md).
-* Capturing/updating helpful information [in our wiki](https://github.com/brave/brave-browser/wiki). You'll need to reach out to a Brave team member to request permission - you can do this by creating a new issue or tagging a Brave team member in an existing issue.
+* Having more clear or up-to-date instructions in the README for both [`brave-browser`](https://github.com/luxxle/brave-browser/blob/master/README.md) and [`brave-core`](https://github.com/luxxle/brave-core/blob/master/README.md).
+* Capturing/updating helpful information [in our wiki](https://github.com/luxxle/brave-browser/wiki). You'll need to reach out to a Brave team member to request permission - you can do this by creating a new issue or tagging a Brave team member in an existing issue.
 * Helping to propose a way to bring documentation to other languages. Right now, everything is in English
 * Improving this document :smile:
 
@@ -37,29 +37,29 @@ Documentation is extremely important. There are lots of areas we can improve:
 All text being added to Brave is done initially in English (en-US) and then is translated by real people into other languages.
 We're missing translations for many languages and some translations might be incomplete or poor quality.
 
-For everything you'd need to get started, check out https://explore.transifex.com/brave/brave_en/ :smile:
+For everything you'd need to get started, check out https://explore.transifex.com/luxxle/brave_en/ :smile:
 
 ### Work on the code
-* The [repo's wiki](https://github.com/brave/brave-browser/wiki) has instructions for cloning the repo and getting setup on your platform of choice
-* Check out the [troubleshooting page](https://github.com/brave/brave-browser/wiki/Troubleshooting) if you get stuck
-* Once you're up and running, find an interesting issue to fix. Check out issues labelled with [good first issue](https://github.com/brave/brave-browser/labels/good%20first%20issue)
-  - some issues only require knowledge of JavaScript (for example, pages using React and our [Brave UI library](https://github.com/brave/brave-ui))
+* The [repo's wiki](https://github.com/luxxle/brave-browser/wiki) has instructions for cloning the repo and getting setup on your platform of choice
+* Check out the [troubleshooting page](https://github.com/luxxle/brave-browser/wiki/Troubleshooting) if you get stuck
+* Once you're up and running, find an interesting issue to fix. Check out issues labelled with [good first issue](https://github.com/luxxle/brave-browser/labels/good%20first%20issue)
+  - some issues only require knowledge of JavaScript (for example, pages using React and our [Brave UI library](https://github.com/luxxle/brave-ui))
   - other issues may require C++ changes in either the Brave code or in Chromium
 
 ## Getting started
 * Make sure you have a [GitHub account](https://github.com/join).
-* Submit a [ticket](https://github.com/brave/brave-browser/issues) for your issue if one does not already exist. Please include the Brave version, operating system, and steps to reproduce the issue.
-* Fork the repository on GitHub (this might be [`brave-browser`](https://github.com/brave/brave-browser), [`brave-core`](https://github.com/brave/brave-core), or both).
+* Submit a [ticket](https://github.com/luxxle/brave-browser/issues) for your issue if one does not already exist. Please include the Brave version, operating system, and steps to reproduce the issue.
+* Fork the repository on GitHub (this might be [`brave-browser`](https://github.com/luxxle/brave-browser), [`brave-core`](https://github.com/luxxle/brave-core), or both).
 * For changes to JavaScript files, we recommend installing a [Standard](http://standardjs.com/) plugin for your preferred text editor in order to ensure code style consistency.
 * For C++ changes, you can consider setting up [clang-format](https://chromium.googlesource.com/chromium/src/+/master/docs/sublime_ide.md#Format-Selection-with-Clang_Format-Chromium-only) for your editor.
-* For changes which involve patches, please check out our [Patching Chromium](https://github.com/brave/brave-browser/wiki/Patching-Chromium) guide.
+* For changes which involve patches, please check out our [Patching Chromium](https://github.com/luxxle/brave-browser/wiki/Patching-Chromium) guide.
 
 ### Making changes
 Once you've cloned the repo to your computer, you're ready to start making edits!
 
 Please note that there are two repositories here:
-* the root project (this repo, [`brave-browser`](https://github.com/brave/brave-browser)), which pulls down all of the Chromium code into `src/`
-* [`brave-core`](https://github.com/brave/brave-core) is basically a sub-module (repo in a repo) which is located on disk under the root at `src/brave`
+* the root project (this repo, [`brave-browser`](https://github.com/luxxle/brave-browser)), which pulls down all of the Chromium code into `src/`
+* [`brave-core`](https://github.com/luxxle/brave-core) is basically a sub-module (repo in a repo) which is located on disk under the root at `src/luxxle`
 
 Depending on which you're editing, you'll need to add your fork to the remotes list. By default, `origin` is set to upstream.
 For example, here's how GitHub user `bsclifton` would add BOTH remotes `brave-browser` and `brave-core`:
@@ -69,7 +69,7 @@ cd ~/brave-browser/
 git remote add bsclifton git@github.com:bsclifton/brave-browser.git
 git fetch bsclifton
 # root for the `brave-core` repo
-cd src/brave
+cd src/luxxle
 git remote add bsclifton git@github.com:bsclifton/brave-core.git
 git fetch bsclifton
 ```
@@ -78,7 +78,7 @@ Once you're set up, there are a few tips we can suggest:
 
 * Make a new branch for your work. It helps to have a descriptive name, like `fix-fullscreen-issue`.
 * Make commits in logical units. If needed, run `git rebase -i` to squash commits before opening a pull request.
-* New features and most other pull requests require a new [test](https://github.com/brave/brave-browser/wiki/Tests) to be written before the pull request will be accepted.  Some exceptions would be a tweak to an area of code that doesn't have tests yet, text changes, build config changes, things that can't be tested due to test suite limitations, etc.
+* New features and most other pull requests require a new [test](https://github.com/luxxle/brave-browser/wiki/Tests) to be written before the pull request will be accepted.  Some exceptions would be a tweak to an area of code that doesn't have tests yet, text changes, build config changes, things that can't be tested due to test suite limitations, etc.
 * Use GitHub [auto-closing keywords](https://help.github.com/articles/closing-issues-via-commit-messages/) in the commit message, and make the commit message body as descriptive as necessary. Ex:
 
 ````
@@ -87,11 +87,11 @@ Once you're set up, there are a few tips we can suggest:
     This is a first pass at a contributor's guide so now people will know how to
     get pull requests accepted faster.
 
-    Fix https://github.com/brave/brave-browser/issues/108
+    Fix https://github.com/luxxle/brave-browser/issues/108
 ````
 
 * Run the tests by running `npm run test brave_unit_tests` and `npm run test brave_browser_tests`
-* JavaScript unit tests can be run from the `src/brave` directory using `npm run test-unit`
+* JavaScript unit tests can be run from the `src/luxxle` directory using `npm run test-unit`
 
 
 ### Keeping your fork up to sync
@@ -120,7 +120,7 @@ Some helpful things to consider before submitting your work
 * If your change affects session or preferences, did you include steps to test? You may also consider manually testing an upgrade.
 
 #### Each pull request should include
-* a descriptive title; this gets used in the release notes ([desktop](https://github.com/brave/brave-browser/blob/master/CHANGELOG_DESKTOP.md) or [android](https://github.com/brave/brave-browser/blob/master/CHANGELOG_ANDROID.md))
+* a descriptive title; this gets used in the release notes ([desktop](https://github.com/luxxle/brave-browser/blob/master/CHANGELOG_DESKTOP.md) or [android](https://github.com/luxxle/brave-browser/blob/master/CHANGELOG_ANDROID.md))
 * a short summary of the changes
 * a reference to the issue that it fixes
 * steps to test the fix (if applicable)
@@ -136,7 +136,7 @@ Once you submit a pull request, you should tag reviewers and add labels if neede
 ### Closing issues
 
 * Issues should be assigned the milestone when the PR is merged (and the fix is landed in Nightly aka master).
-* Some issues may need to be uplifted to other channels (Dev / Beta / Release). Please see our notes on [uplifting a pull request](https://github.com/brave/brave-browser/wiki/Uplifting-a-pull-request).
+* Some issues may need to be uplifted to other channels (Dev / Beta / Release). Please see our notes on [uplifting a pull request](https://github.com/luxxle/brave-browser/wiki/Uplifting-a-pull-request).
 * If an issue is closed without a fix, because it was a duplicate, or perhaps it was invalid, then any milestone markers should be removed.
 * If a bug is not fully fixed after its issue is closed, open a new issue instead of re-opening the existing one (unless the code has been reverted).
 

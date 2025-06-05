@@ -2,17 +2,17 @@
 
 ## Overview
 
-This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects defined in `package.json` and `src/brave/DEPS`:
+This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects defined in `package.json` and `src/luxxle/DEPS`:
 
   - [Chromium](https://chromium.googlesource.com/chromium/src.git)
     - Fetches code via `depot_tools`.
     - Sets the branch for Chromium (ex: 65.0.3325.181).
-  - [brave-core](https://github.com/brave/brave-core)
-    - Mounted at `src/brave`.
+  - [brave-core](https://github.com/luxxle/brave-core)
+    - Mounted at `src/luxxle`.
     - Maintains patches for 3rd party Chromium code.
-  - [adblock-rust](https://github.com/brave/adblock-rust)
+  - [adblock-rust](https://github.com/luxxle/adblock-rust)
     - Implements Brave's ad-block engine.
-    - Linked through [brave/adblock-rust-ffi](https://github.com/brave/brave-core/tree/master/components/adblock_rust_ffi).
+    - Linked through [brave/adblock-rust-ffi](https://github.com/luxxle/brave-core/tree/master/components/adblock_rust_ffi).
 
 ## Downloads
 
@@ -22,14 +22,14 @@ You can [visit our website](https://brave.com/download) to get the latest stable
 
 Please see the [contributing guidelines](./CONTRIBUTING.md).
 
-Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful technical information.
+Our [Wiki](https://github.com/luxxle/brave-browser/wiki) also has some useful technical information.
 
 ## Community
 
 [Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/support-and-troubleshooting),
 [discuss features you'd like to see](https://community.brave.com/c/brave-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
 
-Help us translate Brave to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
+Help us translate Brave to your language by submitting translations at https://explore.transifex.com/luxxle/brave_en/.
 
 Follow [@brave](https://x.com/brave) on X for important news and announcements.
 
@@ -37,19 +37,19 @@ Follow [@brave](https://x.com/brave) on X for important news and announcements.
 
 Follow the instructions for your platform:
 
-- [macOS](https://github.com/brave/brave-browser/wiki/macOS-Development-Environment)
-- [iOS](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment)
-- [Windows](https://github.com/brave/brave-browser/wiki/Windows-Development-Environment)
-- [Linux](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
-- [Android](https://github.com/brave/brave-browser/wiki/Android-Development-Environment)
+- [macOS](https://github.com/luxxle/brave-browser/wiki/macOS-Development-Environment)
+- [iOS](https://github.com/luxxle/brave-browser/wiki/iOS-Development-Environment)
+- [Windows](https://github.com/luxxle/brave-browser/wiki/Windows-Development-Environment)
+- [Linux](https://github.com/luxxle/brave-browser/wiki/Linux-Development-Environment)
+- [Android](https://github.com/luxxle/brave-browser/wiki/Android-Development-Environment)
 
 ## Clone and initialize the repo
 
 Once you have the prerequisites installed, you can get the code and initialize the build environment.
 
 ```bash
-git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/brave
-cd path-to-your-project-folder/src/brave
+git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/luxxle
+cd path-to-your-project-folder/src/luxxle
 npm install
 
 # the Chromium source is downloaded, which has a large history (gigabytes of data)
@@ -67,9 +67,9 @@ npm config set target_os android
 npm config set target_arch arm
 ```
 
-Additional parameters needed to build are documented at https://github.com/brave/brave-browser/wiki/Build-configuration
+Additional parameters needed to build are documented at https://github.com/luxxle/brave-browser/wiki/Build-configuration
 
-Internal developers can find more information at https://github.com/brave/devops/wiki/%60.env%60-config-for-Brave-Developers
+Internal developers can find more information at https://github.com/luxxle/devops/wiki/%60.env%60-config-for-Brave-Developers
 
 ## Build Brave
 The default build type is component.
@@ -88,7 +88,7 @@ npm run build Release
 
 brave-core based android builds should use `npm run build -- --target_os=android --target_arch=arm` or set the npm config variables as specified above for `init`
 
-brave-core based iOS builds should use the Xcode project found in `ios/brave-ios/App`. You can open this project directly or run `npm run ios_bootstrap -- --open_xcodeproj` to have it opened in Xcode. See the [iOS Developer Environment](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment#Building) for more information on iOS builds.
+brave-core based iOS builds should use the Xcode project found in `ios/brave-ios/App`. You can open this project directly or run `npm run ios_bootstrap -- --open_xcodeproj` to have it opened in Xcode. See the [iOS Developer Environment](https://github.com/luxxle/brave-browser/wiki/iOS-Development-Environment#Building) for more information on iOS builds.
 
 ### Build Configurations
 
@@ -139,15 +139,15 @@ Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and
 
 #### Create a new branch:
 ```bash
-brave-browser> cd src/brave
-brave-browser/src/brave> git checkout -b branch_name
+brave-browser> cd src/luxxle
+brave-browser/src/luxxle> git checkout -b branch_name
 ```
 
 #### Checkout an existing branch or tag:
 ```bash
-brave-browser/src/brave> git fetch origin
-brave-browser/src/brave> git checkout [-b] branch_name
-brave-browser/src/brave> npm run sync
+brave-browser/src/luxxle> git fetch origin
+brave-browser/src/luxxle> git checkout [-b] branch_name
+brave-browser/src/luxxle> npm run sync
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -155,8 +155,8 @@ brave-browser/src/brave> npm run sync
 
 #### Update the current branch to the latest remote:
 ```bash
-brave-browser/src/brave> git pull
-brave-browser/src/brave> npm run sync
+brave-browser/src/luxxle> git pull
+brave-browser/src/luxxle> npm run sync
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -171,9 +171,9 @@ brave-browser> npm run sync -- --init
 
 #### When you know that DEPS didn't change, but .patch files did (quickest attempt to perform a mini-sync before a build):
 ```bash
-brave-browser/src/brave> git checkout featureB
-brave-browser/src/brave> git pull
-brave-browser/src/brave> cd ../..
+brave-browser/src/luxxle> git checkout featureB
+brave-browser/src/luxxle> git pull
+brave-browser/src/luxxle> cd ../..
 brave-browser> npm run apply_patches
 ...Applying 2 patches...
 ```
@@ -186,9 +186,9 @@ brave-browser> npm run apply_patches
 
 - [Security rules from Chromium](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/security/rules.md)
 - [IPC review guidelines](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/security/ipc-reviews.md) (in particular [this reference](https://docs.google.com/document/d/1Kw4aTuISF7csHnjOpDJGc7JYIjlvOAKRprCTBVWw_E4/edit#heading=h.84bpc1e9z1bg))
-- [Brave's internal security guidelines](https://github.com/brave/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
-- [Rust usage](https://github.com/brave/brave-core/blob/master/docs/rust.md)
+- [Brave's internal security guidelines](https://github.com/luxxle/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
+- [Rust usage](https://github.com/luxxle/brave-core/blob/master/docs/rust.md)
 
 # Troubleshooting
 
-See [Troubleshooting](https://github.com/brave/brave-browser/wiki/Troubleshooting) for solutions to common problems.
+See [Troubleshooting](https://github.com/luxxle/brave-browser/wiki/Troubleshooting) for solutions to common problems.
