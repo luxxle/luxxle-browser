@@ -11,27 +11,27 @@ const util = require('../lib/util')
 
 Log.progress('Performing initial checkout of brave-core')
 
-const braveCoreDir = path.resolve(__dirname, '..', 'src', 'luxxle')
-const braveCoreRef = util.getProjectVersion('brave-core')
+const luxxleCoreDir = path.resolve(__dirname, '..', 'src', 'luxxle')
+const luxxleCoreRef = util.getProjectVersion('luxxle-core')
 
-if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
-  Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
-  fs.mkdirSync(braveCoreDir)
-  util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
-  util.runGit(braveCoreDir, ['checkout', braveCoreRef])
+if (!fs.existsSync(path.join(luxxleCoreDir, '.git'))) {
+  Log.status(`Cloning luxxle-core [${luxxleCoreRef}] into ${luxxleCoreDir}...`)
+  fs.mkdirSync(luxxleCoreDir)
+  util.runGit(luxxleCoreDir, ['clone', util.getNPMConfig(['projects', 'luxxle-core', 'repository', 'url']), '.'])
+  util.runGit(luxxleCoreDir, ['checkout', luxxleCoreRef])
 }
-const braveCoreSha = util.runGit(braveCoreDir, ['rev-parse', 'HEAD'])
-Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}`)
+const luxxleCoreSha = util.runGit(luxxleCoreDir, ['rev-parse', 'HEAD'])
+Log.progress(`luxxle-core repo at ${luxxleCoreDir} is at commit ID ${luxxleCoreSha}`)
 
 let npmCommand = 'npm'
 if (process.platform === 'win32') {
   npmCommand += '.cmd'
 }
 
-util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+util.run(npmCommand, ['install'], { cwd: luxxleCoreDir })
 
 util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
-  cwd: braveCoreDir,
+  cwd: luxxleCoreDir,
   env: process.env,
   stdio: 'inherit',
   shell: true,

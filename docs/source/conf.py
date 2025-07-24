@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-author = 'Brave Software'
-project = 'Brave browser'
-copyright = '2023, Brave Software'
+author = 'Luxxle'
+project = 'Luxxle browser'
+copyright = '2025, Luxxle'
 
 # The short X.Y version
 version = ''
@@ -81,7 +81,7 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-    'description': '<a href="https://www.brave.com">brave.com</a><meta http-equiv="refresh" content="2; URL=https://brave.com/linux">',
+    'description': '<a href="https://www.luxxle.com">brave.com</a><meta http-equiv="refresh" content="2; URL=https://luxxle.com/linux">',
     'logo': 'brave-release.svg',
     'head_font_family': 'Muli, Proxima Nova, Avenir',
     'caption_font_size': '14px',

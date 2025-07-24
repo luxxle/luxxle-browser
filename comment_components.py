@@ -76,7 +76,7 @@ def main():
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('file', nargs='?', help='Path to specific BUILD.gn file')
     group.add_argument('--all', action='store_true', help='Process all BUILD.gn files in current directory tree')
-    group.add_argument('--brave-dir', action='store_true', help='Process all BUILD.gn files in src/luxxle directory')
+    group.add_argument('--luxxle-dir', action='store_true', help='Process all BUILD.gn files in src/luxxle directory')
     
     parser.add_argument('--dry-run', action='store_true', help='Show what would be changed without modifying files')
     parser.add_argument('--backup', action='store_true', help='Create .bak backup files before modifying')
@@ -92,9 +92,9 @@ def main():
         files_to_process = [args.file]
     elif args.all:
         files_to_process = find_build_gn_files('.')
-    elif args.brave_dir:
-        brave_dir = 'src/luxxle' if os.path.exists('src/luxxle') else '.'
-        files_to_process = find_build_gn_files(brave_dir)
+    elif args.luxxle_dir:
+        luxxle_dir = 'src/luxxle' if os.path.exists('src/luxxle') else '.'
+        files_to_process = find_build_gn_files(luxxle_dir)
     
     if not files_to_process:
         print("No BUILD.gn files found")
