@@ -30,9 +30,10 @@ if (process.platform === 'win32') {
 
 util.run(npmCommand, ['install'], { cwd: luxxleCoreDir })
 
-util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
+util.run(npmCommand, ['run', 'sync', '--', '--init'].concat(process.argv.slice(2)), {
   cwd: luxxleCoreDir,
   env: process.env,
   stdio: 'inherit',
   shell: true,
-  git_cwd: '.', })
+  git_cwd: '.',
+})
