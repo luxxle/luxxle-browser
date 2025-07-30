@@ -43,7 +43,7 @@
   },
   "config": {
     "projects": {
-      "brave-core": {
+      "luxxle-core": {
         "dir": "src/luxxle",
         "branch": "master",
         "repository": {

@@ -1,5 +1,5 @@
 {
-  "extends": ["local>brave/renovate-config"],
+  "extends": ["local>luxxle/renovate-config"],
   "labels": ["dependencies", "renovate"],
   "draftPR": true,
   "prConcurrentLimit": 4,

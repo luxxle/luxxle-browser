@@ -19,7 +19,7 @@ docs/_build
 node_modules
 src
 
-/.brave_latest_successful_sync.json
+/.luxxle_latest_successful_sync.json
 .cipd
 .gclient_entries
 .gclient
